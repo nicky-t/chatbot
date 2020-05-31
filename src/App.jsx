@@ -12,7 +12,7 @@ export default class App extends React.Component {
       chats: [],
       currentId: "init",
       dataset: defaultDataset,
-      open: true,
+      open: false,
     };
     this.selectAnswer = this.selectAnswer.bind(this);
     this.handleClose = this.handleClose.bind(this);
@@ -43,6 +43,9 @@ export default class App extends React.Component {
         a.href = nextQuestionId;
         a.target = "_blank";
         a.click();
+        break;
+      case nextQuestionId === "contact":
+        this.handleClickOpen();
         break;
       default:
         const chats = this.state.chats;
